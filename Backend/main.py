@@ -13,9 +13,9 @@ CORS(app)
 
 from twilio.rest import Client
 import random
-account_sid = 'AC7aee436a54cac70e58bde33a0015bfc3'
-auth_token = 'bf9342929d16eb65eaeb2efc337a27f4'
-twilio_phone_number = '+16174407457'
+account_sid = '<your_account_sid'
+auth_token = '<your_auth_token'
+twilio_phone_number = '<your_phone_number'
 client = Client(account_sid, auth_token)
 otp=0
 def generate_otp():
@@ -33,7 +33,7 @@ def send_otp():
         message = client.messages.create(
             body=f'Your OTP is: {otp}',
             from_=twilio_phone_number,
-            to='+919381150341'
+            to='<your_phone_number'
         )
         return jsonify({'message': 'OTP sent successfully'}), 200
     except Exception as e:
